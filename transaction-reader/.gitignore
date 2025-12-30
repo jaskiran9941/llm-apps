@@ -1,0 +1,41 @@
+# Environment variables and API keys
+.env
+
+# Google OAuth credentials and tokens
+credentials.json
+token.json
+token_*.json
+
+# Generated data
+transactions.json
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+
+# Virtual environments
+venv/
+env/
+ENV/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Streamlit
+.streamlit/
