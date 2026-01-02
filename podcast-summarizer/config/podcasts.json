@@ -1,0 +1,28 @@
+{
+  "podcasts": [
+    {
+      "name": "Lenny's Podcast",
+      "rss_url": "https://api.substack.com/feed/podcast/10845.rss",
+      "enabled": true,
+      "tags": ["product", "growth", "career", "startups"]
+    },
+    {
+      "name": "The Startup Ideas Podcast",
+      "rss_url": "https://rss.flightcast.com/ordbkg8yojpehffas7vr7qpc.xml",
+      "enabled": true,
+      "tags": ["startups", "entrepreneurship", "business ideas"]
+    },
+    {
+      "name": "AI Podcast",
+      "rss_url": "https://media.rss.com/aizen/feed.xml",
+      "enabled": true,
+      "tags": ["technology", "science", "philosophy", "AI"]
+    }
+  ],
+  "settings": {
+    "max_episodes_per_podcast": 3,
+    "summary_length": "medium",
+    "include_timestamps": true,
+    "email_recipient": "jaskiran.9941@gmail.com"
+  }
+}

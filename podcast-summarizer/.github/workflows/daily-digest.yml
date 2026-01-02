@@ -1,0 +1,51 @@
+name: Daily Podcast Digest
+
+on:
+  schedule:
+    # Run every day at 9 AM UTC (adjust to your preferred time)
+    - cron: '0 9 * * *'
+
+  workflow_dispatch:  # Allow manual triggering
+
+jobs:
+  summarize-and-send:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Run podcast summarizer
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          SENDGRID_API_KEY: ${{ secrets.SENDGRID_API_KEY }}
+          FROM_EMAIL: ${{ secrets.FROM_EMAIL }}
+          TO_EMAIL: ${{ secrets.TO_EMAIL }}
+          SUMMARY_LENGTH: ${{ vars.SUMMARY_LENGTH || 'medium' }}
+        run: |
+          cd src
+          python main.py
+
+      - name: Commit updated cache
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add -A cache/
+          git diff --quiet && git diff --staged --quiet || git commit -m "Update processed episodes cache [skip ci]"
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
