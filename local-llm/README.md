@@ -12,7 +12,7 @@ Unlike running a model directly in the terminal with `ollama run`, this project 
 graph LR
     User[User] <-->|Interaction| Frontend[React UI]
     Frontend <-->|HTTP API| Backend[FastAPI Server]
-    Backend <-->|Inference| Engine[Ollama (LLM)]
+    Backend <-->|Inference| Engine["Ollama (LLM)"]
 ```
 
 ### Key Learnings & Differences
