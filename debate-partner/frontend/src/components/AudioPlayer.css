@@ -1,0 +1,36 @@
+.audio-player {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.message.user .audio-player {
+  border-top-color: rgba(255, 255, 255, 0.3);
+}
+
+.play-btn {
+  padding: 0.6rem 1.2rem;
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.message.user .play-btn {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.message.user .play-btn:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.message.assistant .play-btn:hover {
+  background: #5568d3;
+  transform: scale(1.05);
+}
