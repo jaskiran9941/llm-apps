@@ -1,0 +1,1 @@
+from .personality_analyzer import PersonalityAnalyzer
