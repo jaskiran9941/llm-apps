@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Chat - Ask Questions About Your Files</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 800px;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+
+        .header p {
+            opacity: 0.9;
+            font-size: 14px;
+        }
+
+        .content {
+            padding: 30px;
+        }
+
+        .upload-section {
+            border: 2px dashed #667eea;
+            border-radius: 12px;
+            padding: 40px;
+            text-align: center;
+            margin-bottom: 30px;
+            background: #f8f9ff;
+            transition: all 0.3s;
+        }
+
+        .upload-section:hover {
+            border-color: #764ba2;
+            background: #f0f1ff;
+        }
+
+        .upload-section.drag-over {
+            border-color: #764ba2;
+            background: #e8e9ff;
+        }
+
+        .file-input-label {
+            display: inline-block;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: transform 0.2s;
+        }
+
+        .file-input-label:hover {
+            transform: translateY(-2px);
+        }
+
+        #fileInput {
+            display: none;
+        }
+
+        .file-info {
+            margin-top: 15px;
+            color: #555;
+            font-size: 14px;
+        }
+
+        .chat-section {
+            display: none;
+            flex-direction: column;
+            height: 500px;
+        }
+
+        .chat-section.active {
+            display: flex;
+        }
+
+        .messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+
+        .message {
+            margin-bottom: 16px;
+            padding: 12px 16px;
+            border-radius: 12px;
+            max-width: 80%;
+            animation: fadeIn 0.3s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .message.user {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            margin-left: auto;
+        }
+
+        .message.assistant {
+            background: white;
+            border: 1px solid #e0e0e0;
+        }
+
+        .message.assistant .sources {
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid #e0e0e0;
+            font-size: 12px;
+            color: #666;
+        }
+
+        .input-container {
+            display: flex;
+            gap: 10px;
+        }
+
+        #questionInput {
+            flex: 1;
+            padding: 14px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 14px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        #questionInput:focus {
+            border-color: #667eea;
+        }
+
+        button {
+            padding: 14px 28px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: transform 0.2s;
+        }
+
+        button:hover:not(:disabled) {
+            transform: translateY(-2px);
+        }
+
+        button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .reset-btn {
+            background: #dc3545;
+            margin-top: 10px;
+            width: 100%;
+        }
+
+        .status {
+            text-align: center;
+            padding: 12px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            display: none;
+        }
+
+        .status.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .status.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        .loading {
+            display: inline-block;
+            width: 14px;
+            height: 14px;
+            border: 2px solid #f3f3f3;
+            border-top: 2px solid #667eea;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Document Chat</h1>
+            <p>Upload a PDF or text file and ask questions about its content</p>
+        </div>
+
+        <div class="content">
+            <div id="status" class="status"></div>
+
+            <div id="uploadSection" class="upload-section">
+                <h2 style="margin-bottom: 15px; color: #333;">Upload Your Document</h2>
+                <label for="fileInput" class="file-input-label">
+                    Choose File
+                </label>
+                <input type="file" id="fileInput" accept=".pdf,.txt">
+                <div class="file-info" id="fileInfo">
+                    Supported formats: PDF, TXT (Max 16MB)
+                </div>
+            </div>
+
+            <div id="chatSection" class="chat-section">
+                <div id="messages" class="messages"></div>
+                <div class="input-container">
+                    <input
+                        type="text"
+                        id="questionInput"
+                        placeholder="Ask a question about your document..."
+                        autocomplete="off"
+                    >
+                    <button id="sendBtn">Send</button>
+                </div>
+                <button class="reset-btn" id="resetBtn">Upload New Document</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const fileInput = document.getElementById('fileInput');
+        const uploadSection = document.getElementById('uploadSection');
+        const chatSection = document.getElementById('chatSection');
+        const messages = document.getElementById('messages');
+        const questionInput = document.getElementById('questionInput');
+        const sendBtn = document.getElementById('sendBtn');
+        const resetBtn = document.getElementById('resetBtn');
+        const status = document.getElementById('status');
+        const fileInfo = document.getElementById('fileInfo');
+
+        function showStatus(message, type) {
+            status.textContent = message;
+            status.className = `status ${type}`;
+            status.style.display = 'block';
+            setTimeout(() => {
+                status.style.display = 'none';
+            }, 5000);
+        }
+
+        // Drag and drop
+        uploadSection.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadSection.classList.add('drag-over');
+        });
+
+        uploadSection.addEventListener('dragleave', () => {
+            uploadSection.classList.remove('drag-over');
+        });
+
+        uploadSection.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadSection.classList.remove('drag-over');
+            const files = e.dataTransfer.files;
+            if (files.length > 0) {
+                handleFile(files[0]);
+            }
+        });
+
+        fileInput.addEventListener('change', (e) => {
+            if (e.target.files.length > 0) {
+                handleFile(e.target.files[0]);
+            }
+        });
+
+        async function handleFile(file) {
+            if (!file.name.match(/\.(pdf|txt)$/i)) {
+                showStatus('Please upload a PDF or TXT file', 'error');
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append('file', file);
+
+            fileInfo.innerHTML = `<div class="loading"></div> Uploading and processing ${file.name}...`;
+            sendBtn.disabled = true;
+
+            try {
+                const response = await fetch('/upload', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    showStatus(`${data.filename} uploaded successfully! (${data.chunks} chunks created)`, 'success');
+                    uploadSection.style.display = 'none';
+                    chatSection.classList.add('active');
+                    questionInput.focus();
+                } else {
+                    showStatus(data.error || 'Upload failed', 'error');
+                    fileInfo.textContent = 'Supported formats: PDF, TXT (Max 16MB)';
+                }
+            } catch (error) {
+                showStatus('Upload failed: ' + error.message, 'error');
+                fileInfo.textContent = 'Supported formats: PDF, TXT (Max 16MB)';
+            } finally {
+                sendBtn.disabled = false;
+            }
+        }
+
+        async function sendMessage() {
+            const question = questionInput.value.trim();
+            if (!question) return;
+
+            addMessage(question, 'user');
+            questionInput.value = '';
+            sendBtn.disabled = true;
+
+            const thinkingMsg = addMessage('Thinking...', 'assistant');
+
+            try {
+                const response = await fetch('/chat', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ question })
+                });
+
+                const data = await response.json();
+                messages.removeChild(thinkingMsg);
+
+                if (response.ok) {
+                    addMessage(data.answer, 'assistant', data.sources);
+                } else {
+                    addMessage('Error: ' + (data.error || 'Failed to get response'), 'assistant');
+                }
+            } catch (error) {
+                messages.removeChild(thinkingMsg);
+                addMessage('Error: ' + error.message, 'assistant');
+            } finally {
+                sendBtn.disabled = false;
+                questionInput.focus();
+            }
+        }
+
+        function addMessage(text, sender, sources = null) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${sender}`;
+            messageDiv.textContent = text;
+
+            if (sources && sources.length > 0) {
+                const sourcesDiv = document.createElement('div');
+                sourcesDiv.className = 'sources';
+                sourcesDiv.innerHTML = '<strong>Sources:</strong><br>' +
+                    sources.map((s, i) => `${i + 1}. ${s}`).join('<br>');
+                messageDiv.appendChild(sourcesDiv);
+            }
+
+            messages.appendChild(messageDiv);
+            messages.scrollTop = messages.scrollHeight;
+            return messageDiv;
+        }
+
+        sendBtn.addEventListener('click', sendMessage);
+        questionInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter' && !sendBtn.disabled) {
+                sendMessage();
+            }
+        });
+
+        resetBtn.addEventListener('click', async () => {
+            if (confirm('Are you sure you want to upload a new document? This will clear the current conversation.')) {
+                try {
+                    await fetch('/reset', { method: 'POST' });
+                    uploadSection.style.display = 'block';
+                    chatSection.classList.remove('active');
+                    messages.innerHTML = '';
+                    fileInput.value = '';
+                    fileInfo.textContent = 'Supported formats: PDF, TXT (Max 16MB)';
+                    showStatus('Session reset. You can upload a new document.', 'success');
+                } catch (error) {
+                    showStatus('Reset failed: ' + error.message, 'error');
+                }
+            }
+        });
+    </script>
+</body>
+</html>
