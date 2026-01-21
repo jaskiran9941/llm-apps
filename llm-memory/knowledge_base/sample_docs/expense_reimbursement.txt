@@ -1,0 +1,103 @@
+TechCorp Expense Reimbursement Policy
+
+1. Overview
+TechCorp reimburses employees for reasonable and necessary business expenses incurred while performing job duties. All expenses must be documented and approved.
+
+2. Eligible Expenses
+
+Travel Expenses:
+- Airfare (economy class)
+- Hotel accommodations (up to $200/night)
+- Ground transportation (taxi, rideshare, rental car, public transit)
+- Parking fees
+
+Meals:
+- Breakfast: up to $15
+- Lunch: up to $25
+- Dinner: up to $50
+- Business meals with clients: up to $100 per person (requires business justification)
+
+Equipment and Supplies:
+- Office supplies for home office: up to $50/month
+- Software/subscriptions required for work: full cost with manager approval
+- Professional books and training materials: up to $200/year
+
+Professional Development:
+- Conference registration fees: full cost with advance approval
+- Professional membership dues: up to $500/year
+- Online courses and certifications: up to $2,000/year
+
+3. Non-Reimbursable Expenses
+The following are NOT eligible for reimbursement:
+- First-class or business-class airfare (without executive approval)
+- Alcoholic beverages (except at approved client dinners)
+- Personal entertainment (movies, spa, gym)
+- Traffic violations and parking tickets
+- Commuting costs to regular office location
+- Personal phone bills
+- Personal clothing (unless required company uniform)
+
+4. Submission Process
+Expenses must be submitted within 30 days of being incurred.
+
+Steps:
+1. Log into Expense Management System
+2. Create new expense report
+3. Upload itemized receipts (required for expenses over $25)
+4. Categorize each expense
+5. Add business justification
+6. Submit for manager approval
+
+Missing Receipts:
+- If receipt is lost, provide written explanation
+- Expenses over $75 without receipts may be denied
+
+5. Approval and Payment
+- Manager approval required for all expenses
+- CFO approval required for expenses over $1,000
+- Reimbursement processed within 2 weeks of approval
+- Payment via direct deposit to registered bank account
+
+6. Travel Guidelines
+Booking:
+- Use TechCorp preferred vendors when possible (discounts available)
+- Book flights at least 2 weeks in advance
+- Choose reasonably priced hotels near business location
+
+Per Diem Option:
+- For multi-day travel, can choose per diem instead of submitting individual receipts
+- Rate: $75/day for domestic travel, $100/day for international
+- Covers meals and incidental expenses
+
+7. Corporate Credit Card
+Employees who travel frequently may request a corporate credit card.
+
+Benefits:
+- No need to use personal funds
+- Simplified expense reporting
+- Automatic itemization
+
+Responsibilities:
+- Use only for business expenses
+- Submit reconciliation monthly
+- Report lost/stolen card immediately
+
+8. Client Entertainment
+When entertaining clients:
+- Must have clear business purpose
+- Document attendees and discussion topics
+- Limit: $100 per person
+- Alcohol limited to 2 drinks per person
+
+9. Mileage Reimbursement
+Personal vehicle use for business:
+- Current IRS rate (65.5 cents per mile for 2023)
+- Document: date, purpose, start/end locations, miles
+- Not applicable for commute to regular office
+
+10. International Travel
+Additional considerations:
+- Currency conversion at actual exchange rate
+- Foreign transaction fees reimbursed
+- Vaccinations required for travel: reimbursed
+- Passport/visa fees for business travel: reimbursed
