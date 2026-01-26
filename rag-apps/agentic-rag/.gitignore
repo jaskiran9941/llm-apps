@@ -1,0 +1,23 @@
+# Environment
+.env
+*.pyc
+__pycache__/
+
+# Vector database
+chroma_db/
+
+# Documents (user's private data)
+documents/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Streamlit
+.streamlit/
