@@ -1,0 +1,14 @@
+# Test Document for RAG Comparison
+
+This is a test document to demonstrate the three RAG approaches:
+
+## Traditional RAG
+Traditional RAG performs a single retrieval from the vector database and generates an answer directly without any evaluation or correction.
+
+## Corrective RAG
+Corrective RAG (CRAG) adds a grading step after retrieval. It evaluates the relevance of retrieved documents and takes corrective actions if needed, such as query rewriting or switching to web search.
+
+## Agentic RAG  
+Agentic RAG uses a multi-iteration ReAct loop with autonomous reasoning, self-evaluation, and dynamic replanning to find the best answer.
+
+This document contains information about machine learning, artificial intelligence, and retrieval-augmented generation systems.
