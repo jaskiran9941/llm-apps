@@ -6,7 +6,7 @@ description: |
       market intelligence, or when user needs deep insights from multiple data sources.
       license: MIT
       metadata:
-        author: jaskiran9941
+        author: jaskiran9941 
           version: "1.0.0"
           ---
 
