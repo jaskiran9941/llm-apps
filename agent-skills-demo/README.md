@@ -5,7 +5,7 @@ An interactive Streamlit app that teaches the difference between **Skills** and 
 > **Agent = LLM + Tools + Loop + Skills**
 
 ## What You'll Learn
-
+ 
 | Concept | What It Is | In This Demo |
 |---------|-----------|--------------|
 | **Skill** | A prompt template — just text that tells the LLM how to respond | Code Reviewer, Research Analyst, Data Analyst, Email Drafter |
