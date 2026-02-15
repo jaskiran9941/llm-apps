@@ -6,7 +6,7 @@
 ```bash
 streamlit run streamlit_app.py
 ```
-Enter keys in the sidebar - no file editing needed!
+Enter keys in the sidebar - no file editing needed! 
 
 ### Option 2: Local Environment File
 1. Copy the example file:
