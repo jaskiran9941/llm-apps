@@ -69,19 +69,35 @@ streamlit run app.py
 
 ## Level 2: Agent with Storage and Knowledge
 
-*(Coming next)*
+```bash
+cd level2_storage
+streamlit run app.py
+```
 
-Two additions:
-- **SQLite:** Session history persists. Start a new session, agent remembers your conversation.
-- **ChromaDB:** Notes are embedded. Ask "find notes about strategy" → finds semantically similar notes even without exact keyword match.
+**What to read first:** `storage.py` then `knowledge.py` — understand what each stores and why.
+
+**Two additions only:**
+
+**SQLite (`storage.py`):** Every exchange (user message + assistant response) saved to a DB file. On session start, last 20 messages loaded back in. The agent loop doesn't change at all — persistence is added *around* it.
+
+**ChromaDB (`knowledge.py`):** When a note is saved, its text is converted to a vector (list of numbers representing meaning) and stored. New tool: `search_notes` — finds notes by semantic similarity, not keyword match.
+
+**What to do:**
+1. Read `storage.py` — notice how simple it is (one table, save + load)
+2. Read `knowledge.py` — understand what "embedding" means in the comments
+3. Save 3 notes on different topics
+4. Click "New Session" → ask "what did we discuss?" → agent remembers
+5. Ask "find notes about [topic]" — even if the exact words aren't in the note
+
+**The wall:** Tell it "I prefer bullet points". New Session. Ask to save a note. It ignores the preference — because it has *history*, not a *user model*. The preference is buried in old messages, not extracted as a stable fact.
 
 ---
 
 ## Level 3: Agent with Memory and Learning
 
-*(Coming later)*
+*(Coming next)*
 
-One addition: After every interaction, a second Claude call extracts what's worth remembering about *you* — your preferences, your formatting style, how you tag things. Injected at session start.
+One addition: After every interaction, a second Claude call extracts stable user preferences and stores them in SQLite. At session start, those preferences are injected into the system prompt. The agent adapts to *you* without being told.
 
 ---
 

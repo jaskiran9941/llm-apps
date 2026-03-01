@@ -15,7 +15,11 @@ That's what makes it an agent: Claude drives the control flow, not your code.
 
 import os
 import anthropic
+from dotenv import load_dotenv
 from tools import TOOL_SCHEMAS, execute_tool
+
+# Load ANTHROPIC_API_KEY from .env file if it exists
+load_dotenv()
 
 # Initialize the Anthropic client.
 # It reads ANTHROPIC_API_KEY from environment automatically.
