@@ -1,0 +1,23 @@
+[
+  {
+    "id": "G001",
+    "query": "Can I cancel a bid after placing it on eBay Live?",
+    "required_keywords": ["final", "cannot"],
+    "forbidden_keywords": [],
+    "notes": "Bids are final and cannot be retracted — bot must state this clearly"
+  },
+  {
+    "id": "G002",
+    "query": "What upload speed do I need to go live as a seller?",
+    "required_keywords": ["20"],
+    "forbidden_keywords": [],
+    "notes": "Must mention 20 Mbps — any answer without this is incomplete"
+  },
+  {
+    "id": "G003",
+    "query": "Does eBay Live have a standalone mobile app?",
+    "required_keywords": ["don't know", "ebay.com"],
+    "forbidden_keywords": ["yes", "download"],
+    "notes": "This is out of scope — bot must NOT invent an answer"
+  }
+]
