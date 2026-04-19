@@ -1,6 +1,6 @@
 # LLM Evals — Learning Evaluations Progressively
 
-A customer support chatbot for **TaskFlow** (fictional SaaS) built and evaluated across 7 progressive stages.
+A customer support chatbot for **eBay Live** (eBay's livestream shopping platform) built and evaluated across 7 progressive stages.
 
 | Stage | Topic | What you learn |
 |-------|-------|----------------|
