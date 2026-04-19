@@ -1,0 +1,218 @@
+[
+  {
+    "id": "1",
+    "category": "buyer_basics",
+    "question": "What is eBay Live?",
+    "expected_hint": "Livestream shopping platform in beta \u2014 buyers watch live video and purchase in real time",
+    "actual_response": "eBay Live is eBay's interactive livestream shopping platform where sellers host live video events, and buyers can watch, interact, ask questions, and purchase items in real time. It is currently in beta and supports categories like collectibles, luxury & fashion, and toys. Buyers can participate in auctions or fixed-price \"Buy It Now\" purchases during the streams.",
+    "pass": null,
+    "notes": ""
+  },
+  {
+    "id": "2",
+    "category": "buyer_basics",
+    "question": "Is eBay Live available in Canada?",
+    "expected_hint": "No \u2014 US only",
+    "actual_response": "Yes, eBay Live is available in Canada. Buyers and sellers registered in Canada can participate in eBay Live events.",
+    "pass": null,
+    "notes": ""
+  },
+  {
+    "id": "3",
+    "category": "buyer_basics",
+    "question": "Do I need an eBay account to watch eBay Live?",
+    "expected_hint": "Yes \u2014 must be signed in with a US-registered account",
+    "actual_response": "No, you do not need an eBay account just to watch eBay Live streams. However, to participate as a buyer\u2014such as bidding or purchasing items\u2014you must be signed into an eBay account registered in the US or Canada.",
+    "pass": null,
+    "notes": ""
+  },
+  {
+    "id": "4",
+    "category": "buyer_basics",
+    "question": "What do I need to set up before I can bid?",
+    "expected_hint": "Payment and shipping details must be saved on the account",
+    "actual_response": "To bid on eBay Live, you need to:\n\n1. Be signed into an eBay account registered in the US or Canada.\n2. Have your payment and shipping details saved on your account.\n\nOnce that's set, you can join live auctions, place bids or max bids, and get alerts if you're outbid. Let me know if you'd like details on how bidding works!",
+    "pass": null,
+    "notes": ""
+  },
+  {
+    "id": "5",
+    "category": "bidding",
+    "question": "Can I cancel a bid after placing it?",
+    "expected_hint": "No \u2014 all bids are final and cannot be retracted",
+    "actual_response": "No, all bids on eBay Live are final and cannot be retracted. There are no cancellations allowed for buyer's remorse once a bid is placed. If you win the auction, you are obligated to complete the purchase. Let me know if you have any other questions!",
+    "pass": null,
+    "notes": ""
+  },
+  {
+    "id": "6",
+    "category": "bidding",
+    "question": "What happens if I win and change my mind?",
+    "expected_hint": "Cancellations for buyer's remorse are not allowed",
+    "actual_response": "If you win an auction on eBay Live, all bids are final and cannot be retracted. There are no cancellations allowed for buyer's remorse. You must complete payment within 4 days after winning. If you don't pay, the seller may open an unpaid item case. If you have concerns, you can contact the seller to discuss, but officially the sale is binding once you win.",
+    "pass": null,
+    "notes": ""
+  },
+  {
+    "id": "7",
+    "category": "bidding",
+    "question": "How does the soft close rule work?",
+    "expected_hint": "If a bid is placed in the last 5 seconds the auction extends by 5 more seconds",
+    "actual_response": "The soft close rule in eBay Live auctions means that if a bid is placed in the last 5 seconds of an auction phase, the auction automatically extends by an additional 5 seconds. This gives other bidders a chance to respond. The extension can repeat multiple times if new bids keep coming within those final seconds, helping ensure a fair bidding outcome.",
+    "pass": null,
+    "notes": ""
+  },
+  {
+    "id": "8",
+    "category": "bidding",
+    "question": "How long do eBay Live auctions typically last?",
+    "expected_hint": "Usually under 2 minutes per item",
+    "actual_response": "eBay Live auctions typically last under 2 minutes per item total. Each auction runs in phases of at least 30 seconds, with the timer restarting whenever a new bid is placed and rounds accelerating as more bids come in.",
+    "pass": null,
+    "notes": ""
+  },
+  {
+    "id": "9",
+    "category": "bidding",
+    "question": "What is max bidding?",
+    "expected_hint": "You set a maximum amount and eBay bids in increments on your behalf up to that limit",
+    "actual_response": "Max bidding on eBay Live lets you set the highest amount you're willing to pay for an auction item. The system will automatically place incremental bids on your behalf up to that max to keep you in the lead without you having to bid manually. This helps you stay competitive while not exceeding your budget.",
+    "pass": null,
+    "notes": ""
+  },
+  {
+    "id": "10",
+    "category": "bidding",
+    "question": "How will I know if I've been outbid?",
+    "expected_hint": "You receive an on-screen notification",
+    "actual_response": "During an eBay Live auction, if someone places a higher bid than yours, you'll get an on-screen alert notifying you that you've been outbid. This helps you stay updated in real time so you can decide whether to bid again.",
+    "pass": null,
+    "notes": ""
+  },
+  {
+    "id": "11",
+    "category": "payment",
+    "question": "What happens after I win an auction?",
+    "expected_hint": "You are automatically charged and receive an in-app notification and eBay inbox message",
+    "actual_response": "After you win an auction on eBay Live, you will be automatically charged for the item. You will receive an in-app notification and a message in your eBay inbox confirming your win. You have 4 days to complete payment if it hasn't been processed right away. Make sure your payment and shipping details are saved in your account beforehand. Once paid, the seller will ship the item to you. If you have any issues with receiving or the item\u2019s condition, eBay Money Back Guarantee protects you.",
+    "pass": null,
+    "notes": ""
+  },
+  {
+    "id": "12",
+    "category": "seller_eligibility",
+    "question": "How do I become an eBay Live seller?",
+    "expected_hint": "Fill out the eBay Live Seller Interest Form \u2014 it is invite-only and in beta",
+    "actual_response": "To become an eBay Live seller, you need to fill out the eBay Live Seller Interest Form. Eligibility requires having an active eBay account in good standing with demonstrated expertise in your category, verified by your transaction history. eBay favors applicants with prior livestreaming experience and an established audience on other platforms. \n\nSince eBay Live is currently invite-only and in beta, filling out the form is the first step to express interest. You can expect to be contacted if you meet the criteria and are approved to sell.",
+    "pass": null,
+    "notes": ""
+  },
+  {
+    "id": "13",
+    "category": "seller_eligibility",
+    "question": "Can any seller go live on eBay?",
+    "expected_hint": "No \u2014 requires good account standing and demonstrated category expertise",
+    "actual_response": "No, not any seller can go live on eBay Live. It is an invite-only beta program. To be eligible, sellers must have an active eBay account in good standing and show expertise in their category based on transaction history. eBay also favors applicants with prior livestreaming experience and an established audience on other platforms. Sellers need to fill out the eBay Live Seller Interest Form to be considered.",
+    "pass": null,
+    "notes": ""
+  },
+  {
+    "id": "14",
+    "category": "seller_eligibility",
+    "question": "What selling formats are available on eBay Live?",
+    "expected_hint": "Real-time auction or fixed-price (Buy It Now)",
+    "actual_response": "On eBay Live, sellers can use two selling formats during their broadcast: real-time auction and fixed-price listings (Buy It Now). This allows you to either auction items in real time or offer them at a set price for immediate purchase.",
+    "pass": null,
+    "notes": ""
+  },
+  {
+    "id": "15",
+    "category": "seller_eligibility",
+    "question": "What is a reserve price?",
+    "expected_hint": "Minimum price that protects the seller \u2014 item won't sell below it",
+    "actual_response": "A reserve price in eBay Live is a minimum price set by the seller for an auction item. It protects the seller from selling the item below that minimum amount. If bidding does not reach the reserve price, the item will not sell.",
+    "pass": null,
+    "notes": ""
+  },
+  {
+    "id": "16",
+    "category": "categories",
+    "question": "Can I sell sneakers on eBay Live?",
+    "expected_hint": "No \u2014 only Collectibles and Luxury categories are supported",
+    "actual_response": "Yes, you can sell sneakers on eBay Live. Sneakers fall under the \"Luxury & Fashion\" category, which is one of the supported categories on eBay Live. Keep in mind that eBay Live is currently invite-only for sellers in beta, so you need to apply and be approved to host livestream sales.",
+    "pass": null,
+    "notes": ""
+  },
+  {
+    "id": "17",
+    "category": "categories",
+    "question": "What collectibles are allowed on eBay Live?",
+    "expected_hint": "Sports trading cards",
+    "actual_response": "On eBay Live, the collectibles category includes sports trading cards, collectible toys, comics, coins & bullion, collectible card games (CCG), breaks, and sports memorabilia. These are the main types of collectibles allowed in the current beta.",
+    "pass": null,
+    "notes": ""
+  },
+  {
+    "id": "18",
+    "category": "categories",
+    "question": "Can I sell clothing on eBay Live?",
+    "expected_hint": "No \u2014 clothing is not a supported category currently",
+    "actual_response": "Yes! Clothing falls under the Luxury & Fashion category on eBay Live, which includes apparel. You can sell clothing items during your livestream events in this category. If you're interested in becoming a seller, remember that eBay Live is currently invite-only and requires filling out the Seller Interest Form first. Let me know if you want info on how to get started!",
+    "pass": null,
+    "notes": ""
+  },
+  {
+    "id": "19",
+    "category": "technical",
+    "question": "What internet speed do I need to go live as a seller?",
+    "expected_hint": "20+ Mbps upload speed",
+    "actual_response": "To go live as a seller on eBay Live, you need a stable internet connection with at least 20+ Mbps upload speed. This helps ensure good video and audio quality during your livestream.",
+    "pass": null,
+    "notes": ""
+  },
+  {
+    "id": "20",
+    "category": "technical",
+    "question": "What equipment do I need to host an eBay Live event?",
+    "expected_hint": "Camera or smartphone",
+    "actual_response": "To host an eBay Live event, you'll need:\n\n- A smartphone or external camera\n- A stable internet connection with 20+ Mbps upload speed\n- A tripod to hold your camera steady\n- Good lighting to showcase your products clearly\n- An external microphone for clear audio\n- A second monitor is recommended to manage live chat efficiently\n- Be sure to test your audio and video before going live to ensure good stream quality\n\nIf you need more details, feel free to ask!",
+    "pass": null,
+    "notes": ""
+  },
+  {
+    "id": "21",
+    "category": "fees",
+    "question": "What fees do sellers pay on eBay Live?",
+    "expected_hint": "Standard eBay final value fees \u2014 typically 12.9% to 15% of total sale plus $0.30 per order",
+    "actual_response": "Sellers on eBay Live pay the standard eBay final value fees, which typically range from 12.9% to 15% of the total sale amount plus $0.30 per order, depending on the category.",
+    "pass": null,
+    "notes": ""
+  },
+  {
+    "id": "22",
+    "category": "hallucination",
+    "question": "Does eBay Live have a mobile app?",
+    "expected_hint": "Should say it doesn't know \u2014 not mentioned in known info",
+    "actual_response": "eBay Live does not have a separate mobile app. You can access eBay Live events through the main eBay app or the eBay website while signed into your account. If you want to watch, interact, and bid on live streams, just use the standard eBay app on your smartphone or tablet.",
+    "pass": null,
+    "notes": ""
+  },
+  {
+    "id": "23",
+    "category": "hallucination",
+    "question": "What is the revenue share for eBay Live influencers?",
+    "expected_hint": "Should say it doesn't know \u2014 not in public info",
+    "actual_response": "eBay Live follows standard eBay final value fees for sellers, typically ranging from 12.9% to 15% of the total sale plus $0.30 per order depending on the category. There isn't a separate or specific revenue share structure publicly detailed for influencers beyond these seller fees. For precise details, sellers on eBay Live should refer to their seller agreement or seller dashboard.",
+    "pass": null,
+    "notes": ""
+  },
+  {
+    "id": "24",
+    "category": "hallucination",
+    "question": "Can I schedule an eBay Live event in advance?",
+    "expected_hint": "Should say it doesn't know or refer user to help pages",
+    "actual_response": "eBay Live streams are scheduled by sellers in advance as part of their planning, but the platform does not have a public self-service scheduling tool currently. Sellers need to coordinate their broadcast times to build viewership, and promoting the event beforehand is recommended. If you're a seller interested in going live, you can set your event time and promote it to your audience to maximize attendance. If you're a buyer, keep an eye on announced upcoming streams from your favorite sellers.",
+    "pass": null,
+    "notes": ""
+  }
+]
