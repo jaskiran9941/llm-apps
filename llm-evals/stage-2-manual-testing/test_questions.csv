@@ -1,0 +1,25 @@
+id,category,question,expected_answer_hint
+1,buyer_basics,What is eBay Live?,Livestream shopping platform in beta — buyers watch live video and purchase in real time
+2,buyer_basics,Is eBay Live available in Canada?,No — US only
+3,buyer_basics,Do I need an eBay account to watch eBay Live?,Yes — must be signed in with a US-registered account
+4,buyer_basics,What do I need to set up before I can bid?,Payment and shipping details must be saved on the account
+5,bidding,Can I cancel a bid after placing it?,No — all bids are final and cannot be retracted
+6,bidding,What happens if I win and change my mind?,Cancellations for buyer's remorse are not allowed
+7,bidding,How does the soft close rule work?,If a bid is placed in the last 5 seconds the auction extends by 5 more seconds
+8,bidding,How long do eBay Live auctions typically last?,Usually under 2 minutes per item
+9,bidding,What is max bidding?,You set a maximum amount and eBay bids in increments on your behalf up to that limit
+10,bidding,How will I know if I've been outbid?,You receive an on-screen notification
+11,payment,What happens after I win an auction?,You are automatically charged and receive an in-app notification and eBay inbox message
+12,seller_eligibility,How do I become an eBay Live seller?,Fill out the eBay Live Seller Interest Form — it is invite-only and in beta
+13,seller_eligibility,Can any seller go live on eBay?,No — requires good account standing and demonstrated category expertise
+14,seller_eligibility,What selling formats are available on eBay Live?,Real-time auction or fixed-price (Buy It Now)
+15,seller_eligibility,What is a reserve price?,Minimum price that protects the seller — item won't sell below it
+16,categories,Can I sell sneakers on eBay Live?,No — only Collectibles and Luxury categories are supported
+17,categories,What collectibles are allowed on eBay Live?,Sports trading cards, collectible toys, comics
+18,categories,Can I sell clothing on eBay Live?,No — clothing is not a supported category currently
+19,technical,What internet speed do I need to go live as a seller?,20+ Mbps upload speed
+20,technical,What equipment do I need to host an eBay Live event?,Camera or smartphone, tripod, good lighting, external microphone — second monitor recommended
+21,fees,What fees do sellers pay on eBay Live?,Standard eBay final value fees — typically 12.9% to 15% of total sale plus $0.30 per order
+22,hallucination,Does eBay Live have a mobile app?,Should say it doesn't know — not mentioned in known info
+23,hallucination,What is the revenue share for eBay Live influencers?,Should say it doesn't know — not in public info
+24,hallucination,Can I schedule an eBay Live event in advance?,Should say it doesn't know or refer user to help pages
