@@ -1,0 +1,167 @@
+[
+  {
+    "id": "G001",
+    "category": "core_policy",
+    "failure_mode_tested": "bid_finality",
+    "description": "Regression test: bids are final and cannot be retracted",
+    "query": "Can I cancel a bid I placed on eBay Live?",
+    "required_keywords": ["final", "cannot"],
+    "forbidden_keywords": ["yes, you can", "retract bids", "cancel your bid"],
+    "judge_type": "keyword",
+    "notes": "Any response missing 'final' likely fails to state the policy clearly. Trace 4 from Stage 2 is the positive example: 'all bids are final and cannot be retracted'."
+  },
+  {
+    "id": "G002",
+    "category": "core_policy",
+    "failure_mode_tested": "soft_close_rule",
+    "description": "Regression test: 5-second soft close rule must be stated correctly",
+    "query": "What happens if someone bids in the last few seconds of an eBay Live auction?",
+    "required_keywords": ["5"],
+    "forbidden_keywords": ["30 seconds", "automatically ends"],
+    "judge_type": "keyword",
+    "notes": "The soft close rule resets the timer by 5 seconds when a bid is placed in the final 5 seconds. Response must mention this number. Trace 5 from Stage 2 demonstrates the correct policy."
+  },
+  {
+    "id": "G003",
+    "category": "core_policy",
+    "failure_mode_tested": "buyer_geo_restriction",
+    "description": "Regression test: only US and Canada buyers can participate",
+    "query": "I'm based in Australia — can I bid in eBay Live auctions?",
+    "required_keywords": ["us", "canada"],
+    "forbidden_keywords": ["yes", "available worldwide", "any country"],
+    "judge_type": "keyword",
+    "notes": "Bot must name the restricted countries. A response that only says 'certain countries' or vaguely says 'check eligibility' is insufficient. Trace 9 from Stage 2 is the ground-truth response."
+  },
+  {
+    "id": "G004",
+    "category": "core_policy",
+    "failure_mode_tested": "seller_invite_only",
+    "description": "Regression test: seller access is invite-only / beta",
+    "query": "How do I sign up to start selling on eBay Live?",
+    "required_keywords": ["invite", "interest form"],
+    "forbidden_keywords": ["sign up directly", "open to all sellers", "anyone can"],
+    "judge_type": "keyword",
+    "notes": "Bot must mention both the invite-only nature AND the Seller Interest Form as the path to apply. Trace 22 and Trace 25 confirm correct handling."
+  },
+  {
+    "id": "G005",
+    "category": "core_policy",
+    "failure_mode_tested": "internet_speed_requirement",
+    "description": "Regression test: 20+ Mbps upload speed requirement for sellers",
+    "query": "What upload speed do I need to host a live stream on eBay Live?",
+    "required_keywords": ["20"],
+    "forbidden_keywords": ["any speed", "standard connection", "no specific requirement"],
+    "judge_type": "keyword",
+    "notes": "The response must include '20' (for 20 Mbps). This is one of the most concrete technical requirements in the KB. Traces 20 and 25 confirm correct handling."
+  },
+  {
+    "id": "G006",
+    "category": "core_policy",
+    "failure_mode_tested": "money_back_guarantee",
+    "description": "Regression test: eBay Money Back Guarantee applies to eBay Live purchases",
+    "query": "What is the refund policy if an item I bought on eBay Live arrives broken?",
+    "required_keywords": ["money back guarantee", "return"],
+    "forbidden_keywords": ["no refund", "all sales final", "not covered"],
+    "judge_type": "keyword",
+    "notes": "The eBay Money Back Guarantee is explicitly in the KB. A response that fails to name it—or implies items can't be returned—is a regression. Trace 1 from Stage 2 is the ground-truth response."
+  },
+  {
+    "id": "G007",
+    "category": "out_of_scope_escalation",
+    "failure_mode_tested": "fm1_out_of_scope_claim",
+    "description": "Regression test (FM1): pre-recorded video — bot must NOT assert it is unsupported",
+    "query": "Can I stream a pre-recorded video on eBay Live instead of going live?",
+    "required_keywords": ["don't have", "not sure", "ebay.com/help", "i don't"],
+    "forbidden_keywords": ["not supported", "does not support", "not currently supported", "not allowed"],
+    "judge_type": "keyword",
+    "notes": "FM1 regression test directly from Stage 4 failure taxonomy. Trace 24 is the canonical failure: bot said 'Using a pre-recorded video is not currently supported'. KB does not address this topic, so the only correct response is to say I don't know and refer to ebay.com/help."
+  },
+  {
+    "id": "G008",
+    "category": "out_of_scope_escalation",
+    "failure_mode_tested": "fm1_out_of_scope_claim",
+    "description": "Regression test (FM1): scheduling — bot must NOT assert scheduling is unsupported",
+    "query": "Can I schedule an eBay Live stream to start automatically at a future time?",
+    "required_keywords": ["don't have", "not sure", "ebay.com/help", "i don't"],
+    "forbidden_keywords": ["does not support scheduling", "not currently support", "cannot schedule"],
+    "judge_type": "keyword",
+    "notes": "FM1 regression test directly from Stage 4. Trace 36 is the canonical failure: 'eBay Live does not support scheduling'. KB is silent on this — bot must escalate, not invent a negative policy."
+  },
+  {
+    "id": "G009",
+    "category": "hallucination_prevention",
+    "failure_mode_tested": "fm3_invented_process",
+    "description": "Regression test (FM3): bot must NOT invent a specific URL for the Seller Interest Form",
+    "query": "Where do I submit the eBay Live Seller Interest Form?",
+    "required_keywords": ["interest form"],
+    "forbidden_keywords": ["ebay.com/live/interest-form", "ebay.com/live/seller/apply", "ebay.com/live/apply"],
+    "judge_type": "keyword",
+    "notes": "FM3 regression test from Stage 4. Trace 3 is the canonical failure: bot invented the URL 'ebay.com/live/interest-form'. The KB mentions the form but not its URL. Bot should refer to ebay.com/help without inventing a path."
+  },
+  {
+    "id": "G010",
+    "category": "hallucination_prevention",
+    "failure_mode_tested": "fm2_invented_troubleshooting",
+    "description": "Regression test (FM2): troubleshooting — bot must NOT give specific steps not in KB",
+    "query": "My eBay Live stream keeps dropping. Can you walk me through the exact steps to fix it?",
+    "required_keywords": ["ebay.com/help", "help"],
+    "forbidden_keywords": ["clear your cache", "restart your router", "avoid vpn", "encoder settings", "cell signal boosters"],
+    "judge_type": "keyword",
+    "notes": "FM2 regression test from Stage 4. Traces 7 and 14 show the canonical failure: inventing cache-clearing, VPN avoidance, encoder settings. KB mentions 20 Mbps and basic setup but not these specific steps. Bot must refer to eBay Help."
+  },
+  {
+    "id": "G011",
+    "category": "category_correctness",
+    "failure_mode_tested": "category_accuracy",
+    "description": "Regression test: the three core eBay Live categories must be named correctly",
+    "query": "What kinds of items can sellers offer during eBay Live streams?",
+    "required_keywords": ["collectibles", "luxury", "toys"],
+    "forbidden_keywords": ["electronics", "clothing", "furniture", "books"],
+    "judge_type": "keyword",
+    "notes": "A response that lists wrong categories (e.g., electronics) is a hallucination. A response that omits any of the three documented categories is incomplete. Both are regressions."
+  },
+  {
+    "id": "G012",
+    "category": "core_policy",
+    "failure_mode_tested": "fee_structure",
+    "description": "Regression test: final value fee range (12.9%–15%) and per-order fee ($0.30)",
+    "query": "What fees does eBay charge sellers for sales made during a live stream?",
+    "required_keywords": ["12.9", "0.30"],
+    "forbidden_keywords": ["no fees", "free", "standard listing fee only"],
+    "judge_type": "keyword",
+    "notes": "Bot must state both the percentage range and the per-order dollar fee. Omitting either is a regression. Note: '15%' is an acceptable upper bound but '12.9' is the more distinctive lower bound that confirms correct recall."
+  },
+  {
+    "id": "G013",
+    "category": "core_policy",
+    "failure_mode_tested": "max_bid_mechanics",
+    "description": "Regression test: max bid / proxy bidding mechanic must be explained correctly",
+    "query": "What is the Max Bid feature on eBay Live and how does it work?",
+    "required_keywords": ["maximum", "automatically", "behalf"],
+    "forbidden_keywords": ["you must manually", "no automatic", "max bid is not available"],
+    "judge_type": "keyword",
+    "notes": "The Max Bid / proxy bidding system is core eBay Live UX. Bot must convey that eBay bids incrementally on your behalf up to your stated maximum. Trace 4 from Stage 2 demonstrates correct behavior."
+  },
+  {
+    "id": "G014",
+    "category": "core_policy",
+    "failure_mode_tested": "seller_eligibility",
+    "description": "Regression test: seller eligibility requires good standing + transaction history + Interest Form",
+    "query": "What does a seller need to qualify to host on eBay Live?",
+    "required_keywords": ["good standing", "transaction", "interest form"],
+    "forbidden_keywords": ["anyone", "no requirements", "just create an account"],
+    "judge_type": "keyword",
+    "notes": "All three criteria — account in good standing, demonstrated category expertise via transaction history, and the Seller Interest Form — must be present for a complete, non-hallucinated answer. Trace 25 from Stage 2 is the ground truth."
+  },
+  {
+    "id": "G015",
+    "category": "core_policy",
+    "failure_mode_tested": "payment_after_winning",
+    "description": "Regression test: winners have 4 days to complete payment after winning",
+    "query": "How long do I have to pay after winning an eBay Live auction?",
+    "required_keywords": ["4 days", "4"],
+    "forbidden_keywords": ["immediately", "24 hours", "7 days", "no deadline"],
+    "judge_type": "keyword",
+    "notes": "The 4-day payment window is a specific, concrete policy. Responses stating '24 hours' or 'immediately' are regressions. Trace 5 from Stage 2 mentions this policy in the correct context."
+  }
+]

@@ -1,0 +1,37 @@
+id,user_type,query_type,scenario,query
+1,buyer,policy,clear,What is the refund policy for items purchased during an eBay Live stream?
+2,buyer,policy,ambiguous,What are the rules for returning items I buy on eBay Live?
+3,buyer,policy,edge-case,"If I win a bid during a seller’s stream but the item is later reported as counterfeit, what’s eBay Live’s policy on refunds?"
+4,buyer,how-to,clear,How do I place a bid during an eBay Live stream?
+5,buyer,how-to,ambiguous,How do I participate in an eBay Live auction?
+6,buyer,how-to,edge-case,How do I place a bid if I’m watching the live stream on my desktop but my phone has no internet?
+7,buyer,eligibility,clear,Do I need to meet any requirements to participate in bidding on eBay Live?
+8,buyer,eligibility,ambiguous,Do I need to meet any requirements to start bidding on eBay Live?
+9,buyer,eligibility,edge-case,Am I allowed to participate in an eBay Live auction if I'm located outside the US but have an eBay account?
+10,buyer,categories,clear,Which product categories are available for bidding on eBay Live right now?
+11,buyer,categories,ambiguous,What kinds of items can I buy during eBay Live streams?
+12,buyer,categories,edge-case,Are limited-edition digital art collectibles allowed to be purchased through eBay Live streams?
+13,buyer,troubleshooting,clear,I'm getting an error when I try to place a bid on eBay Live—how can I fix this?
+14,buyer,troubleshooting,ambiguous,I'm having trouble placing a bid on eBay Live — what could be causing this?
+15,buyer,troubleshooting,edge-case,I placed a bid but the stream froze right after—did my bid go through or do I need to try again?
+16,buyer,out-of-scope,clear,Does eBay Live support virtual reality shopping experiences?
+17,buyer,out-of-scope,ambiguous,Can I use eBay Live to buy items from other platforms too?
+18,buyer,out-of-scope,edge-case,Can I use eBay Live to make payments directly within the livestream chat?
+19,seller,policy,clear,What are eBay Live's policies on discounted pricing and promotions during my livestream?
+20,seller,policy,ambiguous,What are the rules I need to follow when hosting a live stream on eBay Live?
+21,seller,policy,edge-case,Are there any specific restrictions for hosting live streams that feature crowdfunding or pre-order products on eBay Live?
+22,seller,how-to,clear,How do I set up my first eBay Live stream to start selling?
+23,seller,how-to,ambiguous,How do I set up my first eBay Live stream?
+24,seller,how-to,edge-case,"How do I set up a live stream if I only have a pre-recorded video, not a live camera feed?"
+25,seller,eligibility,clear,What are the specific requirements I need to meet to start hosting a live stream on eBay Live?
+26,seller,eligibility,ambiguous,Do I need to meet any specific requirements to start hosting a live stream on eBay Live?
+27,seller,eligibility,edge-case,"I recently opened a new eBay store—can I start hosting eBay Live streams immediately, or is there a waiting period?"
+28,seller,categories,clear,Can I livestream and sell handmade jewelry on eBay Live?
+29,seller,categories,ambiguous,Can I host a livestream if I sell products that don’t fit into the usual eBay categories?
+30,seller,categories,edge-case,Can I host a live sale for digital products like downloadable art on eBay Live?
+31,seller,troubleshooting,clear,My livestream keeps disconnecting mid-broadcast; how can I fix this issue on eBay Live?
+32,seller,troubleshooting,ambiguous,"My stream keeps having issues, how do I fix it?"
+33,seller,troubleshooting,edge-case,My stream keeps disconnecting whenever I switch from my phone's Wi-Fi to mobile data—how can I fix this?
+34,seller,out-of-scope,clear,Can I use eBay Live to manage my entire eBay store inventory?
+35,seller,out-of-scope,ambiguous,Can I use eBay Live to promote items outside of my eBay store?
+36,seller,out-of-scope,edge-case,Can I schedule a live stream to automatically start at midnight in a different time zone?

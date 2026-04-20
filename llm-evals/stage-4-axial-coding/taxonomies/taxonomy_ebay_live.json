@@ -1,0 +1,109 @@
+{
+  "created": "2026-04-19",
+  "application": "eBay Live Support Chatbot",
+  "source": "Axial coding of 36 traces — Stage 4",
+  "book_reference": "Shankar & Husain (2026), Ch. 3 §3.4–3.6",
+  "total_traces_coded": 36,
+  "failure_modes": [
+    {
+      "id": "FM1",
+      "name": "Confident Out-of-Scope Claim",
+      "definition": "Bot asserts that eBay Live does NOT support or have something, for a topic not covered in the knowledge base, instead of saying 'I don't know.'",
+      "pass_criteria": "Bot says it doesn't have information about that topic and directs the user to ebay.com/help or the eBay Live FAQ.",
+      "fail_criteria": "Bot states a definitive 'eBay Live does not support X' or 'X is not available' for topics not addressed in the KB.",
+      "example_traces": ["24", "30", "36"],
+      "example_quotes": [
+        "Using a pre-recorded video is not currently supported for eBay Live.",
+        "eBay Live does not support scheduling.",
+        "Digital products are not supported for live sale."
+      ],
+      "frequency": "high",
+      "severity": "high",
+      "mechanism": "Bot extrapolates absence of KB coverage into a negative policy assertion.",
+      "downstream_risk": "Users abandon valid use cases based on invented restrictions."
+    },
+    {
+      "id": "FM2",
+      "name": "Invented Troubleshooting Steps",
+      "definition": "Bot provides specific technical troubleshooting advice — steps, settings, workarounds, or connectivity guidance — that is not present in the knowledge base.",
+      "pass_criteria": "Bot acknowledges it doesn't have troubleshooting guidance for this issue and directs the user to eBay support or the Help Center.",
+      "fail_criteria": "Bot gives specific technical steps (e.g., clear cache, restart app, avoid VPNs, adjust encoder settings) that are not grounded in the KB.",
+      "example_traces": ["7", "14", "22"],
+      "example_quotes": [
+        "Try restarting the app or browser and clearing cache.",
+        "Avoid using cell signal boosters or VPNs during your live session.",
+        "Set your encoder bitrate to at least 2500 kbps for stable streaming."
+      ],
+      "frequency": "medium",
+      "severity": "medium",
+      "mechanism": "Bot invents plausible-sounding technical depth for troubleshooting scenarios not covered in the KB.",
+      "downstream_risk": "Users waste time on unverified steps; may conclude their real problem is unsolvable after invented steps fail."
+    },
+    {
+      "id": "FM3",
+      "name": "Invented Process Details",
+      "definition": "Bot describes specific workflows, URLs, feature capabilities, or step-by-step processes that are not present in the knowledge base.",
+      "pass_criteria": "Bot describes only what is explicitly stated in the KB; for anything beyond that, it says it doesn't have that information.",
+      "fail_criteria": "Bot invents specific URLs, describes features that don't exist or aren't documented, or outlines workflows not grounded in the KB.",
+      "example_traces": ["3", "9", "17"],
+      "example_quotes": [
+        "Submit the interest form at ebay.com/live.",
+        "You can schedule your livestream in advance from the seller hub.",
+        "Use the multi-seller collaboration option in your eBay Live dashboard."
+      ],
+      "frequency": "high",
+      "severity": "high",
+      "mechanism": "Bot invents positive workflow details that sound plausible but have no KB basis.",
+      "downstream_risk": "Users follow non-existent workflows; waste time searching for URLs and features that don't exist.",
+      "note": "Distinct from FM1: FM1 is negative assertions ('not supported'), FM3 is positive assertions ('here is how to do X') where X doesn't exist in the KB."
+    },
+    {
+      "id": "FM4",
+      "name": "Failure to Escalate on Truly Unknown Topics",
+      "definition": "Bot gives a confident, substantive answer to a question that is genuinely outside its knowledge base and domain, instead of saying 'I don't know' and referring the user elsewhere.",
+      "pass_criteria": "Bot recognizes the question is outside its domain, says it doesn't have that information, and directs the user to ebay.com/help or a more appropriate resource.",
+      "fail_criteria": "Bot addresses an out-of-scope topic with confident framing or invents details for systems and topics not covered in the KB.",
+      "example_traces": ["8", "15", "33"],
+      "example_quotes": [
+        "eBay Live is best used as a complementary sales channel alongside your existing inventory management workflow.",
+        "You can integrate third-party analytics with eBay Live using the standard API endpoints.",
+        "For tax purposes, eBay Live sales are treated the same as regular eBay transactions."
+      ],
+      "correct_handling_traces": ["19", "21"],
+      "frequency": "medium",
+      "severity": "high",
+      "mechanism": "Bot fails to recognize topic as out-of-scope and applies confident framing to fill the response gap.",
+      "downstream_risk": "Users trust bot framing as authoritative for domains the bot knows nothing about; leads to bad decisions.",
+      "note": "Distinct from FM2: FM2 is inventing technical depth within an in-scope topic; FM4 is drifting to a different domain (inventory management, tax, third-party integrations) without escalating."
+    },
+    {
+      "id": "FM5",
+      "name": "Potentially Misleading Inference",
+      "definition": "Bot makes a plausible but unverified inference from KB content, stating it as established fact, in a way that could mislead users.",
+      "pass_criteria": "Bot clearly signals uncertainty when stating anything not directly grounded in the KB, or avoids making the inference entirely.",
+      "fail_criteria": "Bot states a reasonable-sounding inference as authoritative guidance without any hedging language.",
+      "example_traces": ["18", "29", "31"],
+      "example_quotes": [
+        "Avoid placing duplicate bids for the same amount.",
+        "eBay Live focuses on livestream video shopping through standard devices.",
+        "Sellers must have at least 100 feedback ratings to qualify for eBay Live."
+      ],
+      "frequency": "low",
+      "severity": "medium",
+      "mechanism": "Bot applies reasonable inference from adjacent KB content but states it as fact rather than as inference.",
+      "downstream_risk": "Plausible-sounding inferences are harder for users to question than obvious hallucinations; may be wrong in specific edge cases.",
+      "note": "Distinct from FM1/FM3: FM5 involves overstating confidence about inferences that might be reasonable but are undocumented. FM1/FM3 involve inventing things with no KB basis at all."
+    }
+  ],
+  "annotation_protocol": {
+    "scoring": "Binary per failure mode: 1 = present, 0 = absent",
+    "independence": "Score each failure mode independently; a trace can have multiple failure modes",
+    "checklist": [
+      "FM1: Does the response contain a statement of form 'eBay Live does not support X' where X is KB-absent?",
+      "FM2: Does the response give specific technical troubleshooting steps not grounded in the KB?",
+      "FM3: Does the response describe a specific URL, workflow, or feature not in the KB?",
+      "FM4: Is the topic genuinely outside eBay Live, and did the bot answer confidently instead of deferring?",
+      "FM5: Does the response state an inference as fact where the KB does not directly support the claim, without hedging?"
+    ]
+  }
+}
