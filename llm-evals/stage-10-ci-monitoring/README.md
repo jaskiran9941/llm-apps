@@ -1,4 +1,4 @@
-# Stage 8 — CI/Monitoring
+# Stage 10 — CI, Monitoring & Improvement
 
 Embed your evaluators into a continuous integration loop and monitor real-world performance (Ch 9).
 
